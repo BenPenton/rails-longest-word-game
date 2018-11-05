@@ -1,0 +1,14 @@
+<h1>Welcome to the word game!</h1>
+<h2>Make a word from these letters !</h2>
+
+<ul>
+<% @grid.each do |letter| %>
+  <li><%= letter %></li>
+  <% end %>
+</ul>
+
+<form action="/score">
+  <input type="text" name="user_answer">
+  <input type="submit">
+  <input type="hidden" name="grid" value="<%= @grid.join %>">
+</form>
