@@ -1,14 +1,18 @@
-<h1>Welcome to the word game!</h1>
-<h2>Make a word from these letters !</h2>
+<div class="game_wrapper">
+  <h1>Welcome to the word game!</h1>
+  <h2>Make a word from these letters !</h2>
+  <div class="list">
+    <ul class="list-inline">
+    <% @grid.each do |letter| %>
+        <li class="letter"><%= letter %></li>
+      <% end %>
+    </ul>
+  </div>
 
-<ul>
-<% @grid.each do |letter| %>
-  <li><%= letter %></li>
-  <% end %>
-</ul>
+  <form action="/score">
+    <input type="text" name="user_answer">
+    <input type="submit" class="btn btn-primary">
+    <input type="hidden" name="grid" value="<%= @grid.join %>">
+  </form>
 
-<form action="/score">
-  <input type="text" name="user_answer">
-  <input type="submit">
-  <input type="hidden" name="grid" value="<%= @grid.join %>">
-</form>
+</div>
